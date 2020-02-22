@@ -7,6 +7,9 @@
                 <p>published: {{ contribution.published_date }}</p>
             </div>
         {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'contribution_edit' pk=contribution.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h2>{{ contribution.title }}</h2>
         <p>{{ contribution.text|linebreaksbr }}</p>
         <div class="rating">
