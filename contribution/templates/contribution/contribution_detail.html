@@ -1,0 +1,16 @@
+{% extends 'contribution/base.html' %}
+
+{% block content %}
+    <div class="contribution">
+        {% if contribution.published_date %}
+            <div class="date">
+                <p>published: {{ contribution.published_date }}</p>
+            </div>
+        {% endif %}
+        <h2>{{ contribution.title }}</h2>
+        <p>{{ contribution.text|linebreaksbr }}</p>
+        <div class="rating">
+            <p>rating: {{ contribution.rating }}</p>
+        </div>
+    </div>
+{% endblock %}
