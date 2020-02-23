@@ -13,7 +13,11 @@
         <h2>{{ contribution.title }}</h2>
         <p>{{ contribution.text|linebreaksbr }}</p>
         <div class="rating">
-            <p>rating: {{ contribution.rating }}</p>
+            <p>
+                rating: {{ contribution.rating }}
+                <a class="btn btn-default" href="{% url 'contribution_rating_up' pk=contribution.pk %}"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+                <a class="btn btn-default" href="{% url 'contribution_rating_down' pk=contribution.pk %}"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+            </p>
         </div>
     </div>
 {% endblock %}

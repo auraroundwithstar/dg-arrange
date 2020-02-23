@@ -39,3 +39,15 @@ def contribution_edit(request, pk):
     else:
         form = ContributionForm(instance=contribution)
     return render(request, 'contribution/contribution_edit.html', {'form': form})
+
+def contribution_rating_up(request, pk):
+    contribution = get_object_or_404(Contribution, pk=pk)
+    contribution.rating += 1
+    contribution.save()
+    return redirect('contribution_detail', pk=contribution.pk)
+
+def contribution_rating_down(request, pk):
+    contribution = get_object_or_404(Contribution, pk=pk)
+    contribution.rating -= 1
+    contribution.save()
+    return redirect('contribution_detail', pk=contribution.pk)
